@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <!--
+        <label for="quota">Number of primes:</label>
+        <input type="text" id="quota" name="quota" value="1000000" />
+
+        <button id="generate">Generate primes</button>
+        <button id="reload">Reload</button>
+
+    -->
+
+
+    <!--
+        <button id="xhr">Click to start request</button>
+        <button id="reload">Reload</button>
+        
+        <pre readonly class="event-log"></pre>
+    -->
+
+
+    <div id="output"></div>
+
+    <script>
+        //Synchronous programming
+        /*
+        const name = 'Miriam';
+        const greeting = `Hello, my name is ${name}!`;
+        console.log(greeting);
+        
+
+        //Still synchronous even with a function 
+        function makeGreeting(name) {
+        return `Hello, my name is ${name}!`;
+        }
+
+        const name = 'Miriam';
+        const greeting = makeGreeting(name);
+        console.log(greeting);
+        // "Hello, my name is Miriam!"
+        
+---------------------------------------------------------------
+        const MAX_PRIME = 1000000;
+
+        function isPrime(n) {
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+            return false;
+            }
+        }
+        return n > 1;
+        }
+
+        const random = (max) => Math.floor(Math.random() * max);
+
+        function generatePrimes(quota) {
+        const primes = [];
+        while (primes.length < quota) {
+            const candidate = random(MAX_PRIME);
+            if (isPrime(candidate)) {
+            primes.push(candidate);
+            }
+        }
+        return primes;
+        }
+
+        const quota = document.querySelector('#quota');
+        const output = document.querySelector('#output');
+
+        document.querySelector('#generate').addEventListener('click', () => {
+        const primes = generatePrimes(quota.value);
+        output.textContent = `Finished generating ${quota.value} primes!`;
+        });
+
+        document.querySelector('#reload').addEventListener('click', () => {
+        document.location.reload();
+        });
+
+        //The above makes it so that you can't click on anything else while the calculation takes place
+---------------------------------------------------------------
+        const log = document.querySelector('.event-log');
+
+        document.querySelector('#xhr').addEventListener('click', () => {
+        log.textContent = '';
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('loadend', () => {
+            log.textContent = `${log.textContent}Finished with status: ${xhr.status}`;
+        });
+
+        xhr.open('GET', 'https://raw.githubusercontent.com/mdn/content/main/files/en-us/_wikihistory.json');
+        xhr.send();
+        log.textContent = `${log.textContent}Started XHR request\n`;});
+
+        document.querySelector('#reload').addEventListener('click', () => {
+        log.textContent = '';
+        document.location.reload();
+        });
+
+
+        */
+
+        /*
+        Callbacks
+            An event handler is a particular type of callback. A callback is just a function that's passed into another function, with the expectation that the callback will be called at the appropriate time. As we just saw, callbacks used to be the main way asynchronous functions were implemented in JavaScript.
+
+
+Learning Questions:
+What is the primary difference between synchronous and asynchronous programming in JavaScript?
+Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
+Synchronous programming going one line at a time reading it, doing it, then moving to the next line in a sequence. 
+Long synchronous functions make it so that you have to wait for it to finish before being able to do anything else. (Like time.sleep in turtle)
+Why is this useful?
+Makes it faster
+What problems does it solve?
+
+When we nest callbacks like this, it can also get very hard to handle errors: often you have to handle errors at each level of the "pyramid", instead of having error handling only once at the top level."pyramid of doom" (because the indentation looks like a pyramid on its side).
+
+        */
+
+        function doStep1(init, callback) {
+            const result = init + 1;
+            callback(result);
+        }
+
+        function doStep2(init, callback) {
+            const result = init + 2;
+            callback(result);
+        }
+
+        function doStep3(init, callback) {
+            const result = init + 3;
+            callback(result);
+        }
+
+        function doOperation() {
+            doStep1(0, (result1) => {
+            doStep2(result1, (result2) => {
+            doStep3(result2, (result3) => {
+                console.log(`result: ${result3}`);
+            });
+            });
+        });
+        }
+
+        doOperation();
+
+    </script>
+    
+</body>
+
+</html>
+
+
+
