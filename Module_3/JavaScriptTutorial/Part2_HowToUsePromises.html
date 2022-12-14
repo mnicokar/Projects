@@ -1,0 +1,100 @@
+<!--Promises are the foundation of asynchronous programming in modern JavaScript. A promise is an object returned by an asynchronous function, which represents the current state of the operation. At the time the promise is returned to the caller, the operation often isn't finished, but the promise object provides methods to handle the eventual success or failure of the operation.
+
+First, a promise can be in one of three states:
+pending: the promise has been created, and the asynchronous function it's associated with has not succeeded or failed yet. This is the state your promise is in when it's returned from a call to fetch(), and the request is still being made.
+fulfilled: the asynchronous function has succeeded. When a promise is fulfilled, its then() handler is called.
+rejected: the asynchronous function has failed. When a promise is rejected, its catch() handler is called.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /*
+        const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+        fetchPromise.then((response) => {
+        const jsonPromise = response.json();
+        jsonPromise.then((data) => {
+            console.log(data[0].name);
+        });
+        });
+        
+    */
+
+        //code above rewritten as 
+    /*
+        const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+        fetchPromise
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data[0].name);
+        });
+    */
+        //and then
+    /*
+        const fetchPromise = fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+        fetchPromise.then((response) => {
+            if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data[0].name);
+        });
+    */
+        //causing errors for fun
+    /*
+        const fetchPromise = fetch('bad-scheme://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+
+        fetchPromise
+        .then((response) => {
+            if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data[0].name);
+        })
+        .catch((error) => {
+            console.error(`Could not get products: ${error}`);
+        });
+    */
+
+        //This enables you to write code that uses asynchronous functions but looks like synchronous code. For example, we could use it to rewrite our fetch example:
+        async function fetchProducts() {
+        try {
+            // after this line, our function will wait for the `fetch()` call to be settled
+            // the `fetch()` call will either return a Response or throw an error
+            const response = await fetch('https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json');
+            if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+            }
+            // after this line, our function will wait for the `response.json()` call to be settled
+            // the `response.json()` call will either return the parsed JSON object or throw an error
+            const data = await response.json();
+            console.log(data[0].name);
+        }
+        catch (error) {
+            console.error(`Could not get products: ${error}`);
+        }
+        }
+
+fetchProducts();
+
+
+
+
+    </script>
+</body>
+</html>
