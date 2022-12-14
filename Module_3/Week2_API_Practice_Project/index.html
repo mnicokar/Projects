@@ -1,0 +1,57 @@
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <!--
+        <button id='btn' onclick="getCatBreeds()">Get cat breeds</button>
+    -->
+    
+    <button id='btn' onclick="getSuperPics()">Get Superhero Pictures</button>
+</body>
+    <script>
+       const getSuperPics = async() => {
+            //document.body.innerHTML = '';
+            for (let i = 0; i< 10; i++){
+                let num = Math.floor(Math.random() * 100);
+                let url = `https://www.superheroapi.com/api.php/2574992789309660/${num}/image`;
+                
+                try{
+                    
+                    const response = await fetch(url);
+
+                    const heroPictures = await response.json();
+
+                    if(heroPictures.response === 'success'){
+                        console.log(heroPictures);
+                        //showSearchList(heroPictures.results);
+                    }
+
+    
+                    
+                    const img = document.createElement('img');
+            
+                    img.src = heroPictures.url;
+            
+                    document.getElementById('body').appendChild(img);
+                
+            
+                    console.log('heroPictures', heroPictures);
+                } catch(error){
+                    console.log(error);
+                }
+            }
+        } 
+    </script>
+</html>
+<!-- images/search?limit=20 -->
+<!-- https://api.thecatapi.com/v1/images/search -->
+<!-- https://api.thecatapi.com/v1/breeds -->
+<!-- live_m26JVdagCCi5UrWg03hkiyGdkF5vg9UQOJIPLAM8R9QTCGKfEXYZ9tzzU70dcgdm -->
+```
+<hr>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id = "title"> Classes: The Basics </h2>
+
+    <script type = "text/javascript">
+        //Parent and Child Class
+        class Person {
+            constructor(_name,_age){
+                this.name = _name;
+                this.age = _age;
+            }
+
+            describe(){
+                console.log (`I am ${this.name} and I am ${this.age} years old`);
+            }
+        }
+
+        class Programmer extends Person {
+            constructor(_name,_age, _yearsOfExperience){
+                super(_name,_age);
+                this.yearsOfExperience = _yearsOfExperience;
+
+            }
+
+            code(){
+                console.log(`${this.name} is coding`);
+            }
+        }
+
+        const programmers = [
+            new Programmer ("Dom",56,12),
+            new Programmer ("Jeff", 24, 14)
+        ];
+
+
+        function developSoftware (programmers){
+            //develop software
+            for (let programmer of programmers){
+                programmer.code();
+            }
+
+        }
+
+        developSoftware(programmers);
+
+    </script>
+</body>
+</html>

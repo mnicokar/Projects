@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id = "title"> Classes: The Basics </h2>
+
+    <script type = "text/javascript">
+        /*
+            Class -> Object
+
+            Instance Properties: What they have
+                - name
+                - age
+                - height
+            
+            Instance Methods: What they do
+                -talk
+                - run
+                -jump
+
+        */
+
+        class Square {
+            constructor (_width){
+                this.width = _width;
+                this.height = _width;
+            }
+
+            get area(){
+                return this.width * this.width;
+            }
+
+            //static method
+            static equals (a,b){
+                return a.area === b.area;
+            }
+
+            static isValidDimensions(width,height){
+                return width === height;
+            }
+
+        }
+
+        
+        let square1 = new Square(9);
+
+        let square2 = new Square(8);
+
+        console.log(Square.equals(square1,square2));
+
+        console.log(Square.isValidDimensions(6,6));
+
+    </script>
+</body>
+</html>
