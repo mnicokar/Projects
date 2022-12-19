@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, sans-serif;
+
+    background-color: #282D35;
+}
+
+
+main {
+position: absolute;
+width: 550px;
+height: 400px;
+left: 65px;
+top: 53px;
+
+
+background-image: url(./images/profile.jpg);
+background-position:80%;
+border-radius: 10px 10px 0px 0px;
+}
+
+.head--name {
+    position: absolute;
+    width: 178.06px;
+    height: 25.81px;
+    left: 186px;
+    top: 382px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.head--occupation{
+    position: absolute;
+    width: 178.06px;
+    height: 14.19px;
+    left: 186px;
+    top: 414px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12.8px;
+    line-height: 15px;
+    text-align: center;
+
+    color: #F3BF99;
+}
+
+.head--email{
+    position: absolute;
+    width: 228px;
+    height: 16px;
+    left: 161px;
+    top: 437px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10.24px;
+    line-height: 150%;
+    /* identical to box height, or 15px */
+
+    text-align: center;
+
+    color: #F5F5F5
+}
+
+
+.body--about{
+        
+    position: absolute;
+    width: 242.71px;
+    height: 20px;
+    left: 152px;
+    top: 510px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+
+    color: #F5F5F5;
+
+}
+.body--description{
+    position: absolute;
+    width: 247px;
+    height: 61px;
+    left: 152px;
+    top: 531px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12.24px;
+    line-height: 150%;
+    /* or 15px */
+
+
+    color: #DCDCDC;
+
+}
+
+.body--interests{
+    position: absolute;
+    width: 242.71px;
+    height: 21px;
+    left: 152px;
+    top: 640px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    /* or 24px */
+
+
+    color: #F5F5F5;
+
+}
+.body--linkedIn{
+/* Button */
+
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 9px 13px 9px 11px;
+gap: 8px;
+
+position: absolute;
+width: 115px;
+height: 34px;
+left: 283px;
+top: 468px;
+
+background: #5093E2;
+/* shadow/sm */
+
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+border-radius: 6px;
+}
+.body--email{
+    box-sizing: border-box;
+
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 9px 13px 9px 11px;
+gap: 8px;
+
+position: absolute;
+width: 115px;
+height: 34px;
+left: 151px;
+top: 468px;
+
+/* white */
+
+background: #FFFFFF;
+/* gray/300 */
+
+border: 1px solid #D1D5DB;
+/* shadow/sm */
+
+box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+border-radius: 6px;
+
+}
+
+.body--i{
+position: absolute;
+width: 247px;
+height: 61px;
+left: 152px;
+top: 665px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 12.24px;
+line-height: 150%;
+/* or 15px */
+
+
+color: #DCDCDC;
+
+}
