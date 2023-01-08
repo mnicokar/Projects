@@ -1,0 +1,43 @@
+
+body{
+  background-color: #F5F7FB;
+}
+
+.top-shape{
+  position: absolute;
+  width: 297px;
+  height: 235px;
+  right: 0;
+  top: 0px;
+}
+
+
+.bottom-shape{
+  position: absolute;
+  width: 297px;
+  height: 235px;
+  left: 0px;
+  bottom: 0px;
+}
+
+
+.game-intro {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.game-title 
+{
+	font-weight: 700;
+	font-size: 2em;
+	text-align: center;
+  margin-bottom: 5px;
+}
+
+
+.game-description {
+	text-align: center;
+  margin-bottom: 10px;
+}

@@ -52,6 +52,8 @@ while (xSpeed === 0 ){
 
 var ySpeed = Math.floor(Math.random()*4) - 2;
 
+let ball = new Ball(x, y, circleRadius);
+
 
 function setup() {
   bg = loadImage("bg.jpg");
